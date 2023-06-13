@@ -75,7 +75,7 @@ public class Main {
         }
     }
     public static int[][] zeroMatrixInPlace(int[][] matrix) {
-        markElementsInPlace(matrix);
+        matrix = markElementsInPlace(matrix);
         for(int i = matrix[0].length - 1; i > 0; i--) {
             if(matrix[0][i] == 0 | matrix[0][i] == verticalMarker) {
                 setColumnToZero(matrix, i);
@@ -97,7 +97,7 @@ public class Main {
         }
         return matrix;
     }
-    private static void markElementsInPlace(int[][] matrix) {
+    private static int[][] markElementsInPlace(int[][] matrix) {
         for(int row = 0; row < matrix.length; row++) {
             for(int column = 0; column < matrix[0].length; column++) {
                 if(matrix[row][column] == 0) {
@@ -115,6 +115,7 @@ public class Main {
                 }
             }
         }
+        return matrix;
     }
     private static boolean isFirstElementSetToVertical(int[][] matrix) {
         return matrix[0][0] == verticalMarker;
